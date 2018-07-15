@@ -58,6 +58,9 @@ for line in open('../large_files/translation/spa.txt'):
   if '\t' not in line:
     continue
 
+  if t > NUM_SAMPLES:
+  	break
+
   # split up the input and translation
   input_text, translation = line.rstrip().split('\t')
 
@@ -69,9 +72,6 @@ for line in open('../large_files/translation/spa.txt'):
   input_texts.append(input_text)
   target_texts.append(target_text)
   target_texts_inputs.append(target_text_input)
-
-  if t > NUM_SAMPLES:
-  	break
 
 print("num samples:", len(input_texts))
 
